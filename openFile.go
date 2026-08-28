@@ -8,10 +8,10 @@ import "os"
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func OpenFile(f Filepath) *os.File {
+func OpenFile(f Filepath) (*os.File, error) {
 	file, err := os.Open(string(f))
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	return file
+	return file, nil
 }
