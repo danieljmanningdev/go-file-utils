@@ -1,8 +1,8 @@
-# gofileutils
+# go-file-utils
 
-[![CI](https://github.com/danieljmanningdev/gofileutils/actions/workflows/ci.yml/badge.svg)](https://github.com/danieljmanningdev/gofileutils/actions/workflows/ci.yml)
+[![CI](https://github.com/danieljmanningdev/go-file-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/danieljmanningdev/go-file-utils/actions/workflows/ci.yml)
 
-`gofileutils` is a lightweight Go utility package for common file operations, line-based text handling, and JSON encoding and decoding.
+`go-file-utils` is a lightweight Go utility package for common file operations, line-based text handling, and JSON encoding and decoding.
 
 It wraps repetitive standard-library file I/O into small, reusable helpers while keeping error handling in the caller's control.
 
@@ -11,13 +11,13 @@ It wraps repetitive standard-library file I/O into small, reusable helpers while
 Add the package to your Go project:
 
 ```bash
-go get github.com/danieljmanningdev/gofileutils
+go get github.com/danieljmanningdev/go-file-utils
 ```
 
 Then import it where needed:
 
 ```go
-import "github.com/danieljmanningdev/gofileutils"
+import "github.com/danieljmanningdev/go-file-utils"
 ```
 
 ## Features
@@ -34,6 +34,8 @@ import "github.com/danieljmanningdev/gofileutils"
 ## Error Handling
 
 Most operations return errors rather than panicking internally. This allows the calling application to decide how failures should be handled.
+
+For cases where an error should be treated as unrecoverable, the package also provides Must.
 
 For example:
 
@@ -68,7 +70,7 @@ package main
 import (
     "log"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 func main() {
@@ -93,7 +95,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 func main() {
@@ -120,7 +122,7 @@ package main
 import (
     "log"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 func main() {
@@ -149,7 +151,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 type Config struct {
@@ -180,7 +182,7 @@ package main
 import (
     "log"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 type Config struct {
@@ -212,7 +214,7 @@ package main
 import (
     "fmt"
 
-    "github.com/danieljmanningdev/gofileutils"
+    "github.com/danieljmanningdev/go-file-utils"
 )
 
 func main() {
