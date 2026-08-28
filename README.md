@@ -89,3 +89,25 @@ func main() {
 }
 ```
 
+## 5. Checking If a File Exists
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/danieljmanningdev/gofileutils"
+)
+
+func main() {
+    path := gofileutils.Filepath("config.json")
+    
+    if gofileutils.FileExists(path) {
+        fmt.Println("File is present!")
+    } else {
+        fmt.Println("File not found.")
+    }
+}
+```
+
+## License
+This project is open-source under the terms of the [MIT](LICENSE) License.
