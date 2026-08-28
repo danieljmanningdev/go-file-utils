@@ -12,7 +12,7 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func ReadJSON(f filepath, v interface{}) {
+func ReadJSON(f Filepath, v interface{}) {
 	file, err := os.Open(string(f))
 	if err != nil {
 		panic(err)

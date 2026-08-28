@@ -7,7 +7,7 @@ import "os"
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func FileExists(f filepath) bool {
+func FileExists(f Filepath) bool {
 	info, err := os.Stat(string(f))
 	if os.IsNotExist(err) {
 		return false

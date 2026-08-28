@@ -11,7 +11,7 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func WriteJSON(f filepath, v interface{}) {
+func WriteJSON(f Filepath, v interface{}) {
 	data, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
 		panic(err)

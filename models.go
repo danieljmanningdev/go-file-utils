@@ -5,4 +5,4 @@ package gofileutils
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-type filepath string
+type Filepath string
