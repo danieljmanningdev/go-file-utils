@@ -11,28 +11,24 @@ import (
 //
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
-// Last Modified: 2026-08-28
-func ReadLines(f Filepath) []string {
-	// Open the file using the underlying string value of our custom type
+// Last Modified: 28 August 2026
+func ReadLines(f Filepath) ([]string, error) {
 	file, err := os.Open(string(f))
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	// Ensure the file is safely closed when the function finishes executing
 	defer file.Close()
 
 	var lines []string
 
-	// Create a new scanner to stream the file contents line by line
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
 
-	// Check for any errors that occurred during the scanning process
 	if err := scanner.Err(); err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	return lines
+	return lines, nil
 }

@@ -12,15 +12,17 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func ReadJSON(f Filepath, v interface{}) {
+func ReadJSON(f Filepath, v any) error {
 	file, err := os.Open(string(f))
 	if err != nil {
-		panic(err)
+		return err
 	}
 	defer file.Close()
 
 	decoder := json.NewDecoder(file)
 	if err := decoder.Decode(v); err != nil {
-		panic(err)
+		return err
 	}
+
+	return nil
 }

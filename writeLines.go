@@ -11,10 +11,10 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func WriteLines(f Filepath, lines []string) {
+func WriteLines(f Filepath, lines []string) error {
 	file, err := os.Create(string(f))
 	if err != nil {
-		panic(err)
+		return err
 	}
 	defer file.Close()
 
@@ -22,8 +22,9 @@ func WriteLines(f Filepath, lines []string) {
 	for _, line := range lines {
 		_, err := writer.WriteString(line + "\n")
 		if err != nil {
-			panic(err)
+			return err
 		}
 	}
 	writer.Flush()
+	return nil
 }

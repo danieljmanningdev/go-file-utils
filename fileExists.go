@@ -9,8 +9,9 @@ import "os"
 // Last Modified: 28 August 2026
 func FileExists(f Filepath) bool {
 	info, err := os.Stat(string(f))
-	if os.IsNotExist(err) {
+	if err != nil {
 		return false
 	}
+
 	return !info.IsDir()
 }

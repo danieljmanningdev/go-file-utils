@@ -11,14 +11,14 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func WriteJSON(f Filepath, v interface{}) {
+func WriteJSON(f Filepath, v any) error {
 	data, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	err = os.WriteFile(string(f), data, 0644)
-	if err != nil {
-		panic(err)
+	if err := os.WriteFile(string(f), data, 0644); err != nil {
+		return err
 	}
+	return nil
 }
