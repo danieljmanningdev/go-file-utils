@@ -11,7 +11,7 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func WriteLines(f filepath, lines []string) {
+func WriteLines(f Filepath, lines []string) {
 	file, err := os.Create(string(f))
 	if err != nil {
 		panic(err)
