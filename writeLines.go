@@ -25,6 +25,9 @@ func WriteLines(f Filepath, lines []string) error {
 			return err
 		}
 	}
-	writer.Flush()
+	if err := writer.Flush(); err != nil {
+		return err
+	}
+
 	return nil
 }
