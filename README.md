@@ -1,5 +1,7 @@
 # gofileutils
 
+[![CI](https://github.com/danieljmanningdev/gofileutils/actions/workflows/ci.yml/badge.svg)](https://github.com/danieljmanningdev/gofileutils/actions/workflows/ci.yml)
+
 `gofileutils` is a lightweight Go utility package for common file operations, line-based text handling, and JSON encoding and decoding.
 
 It wraps repetitive standard-library file I/O into small, reusable helpers while keeping error handling in the caller's control.
