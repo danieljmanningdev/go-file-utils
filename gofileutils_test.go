@@ -8,6 +8,9 @@ import (
 	"testing"
 )
 
+// Author: Daniel Manning <daniel@danieljmanningdev.com>
+// Created: 2026
+
 func TestFileExists(t *testing.T) {
 	dir := t.TempDir()
 

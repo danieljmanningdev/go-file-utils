@@ -9,8 +9,7 @@ import (
 // and writes it to a file at the specified path.
 //
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
-// Created: 2026
-// Last Modified: 28 August 2026
+
 func WriteJSON(f string, v any) error {
 	data, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
