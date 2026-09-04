@@ -12,7 +12,7 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func ReadJSON(f Filepath, v any) error {
+func ReadJSON(f string, v any) error {
 	file, err := os.Open(string(f))
 	if err != nil {
 		return err

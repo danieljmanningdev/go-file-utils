@@ -11,7 +11,7 @@ import (
 func TestFileExists(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "test.txt"))
+	filePath := string(filepath.Join(dir, "test.txt"))
 
 	if err := os.WriteFile(string(filePath), []byte("hello"), 0644); err != nil {
 		t.Fatalf("failed to create test file: %v", err)
@@ -21,13 +21,13 @@ func TestFileExists(t *testing.T) {
 		t.Fatal("FileExists() = false, want true")
 	}
 
-	missingPath := Filepath(filepath.Join(dir, "missing.txt"))
+	missingPath := string(filepath.Join(dir, "missing.txt"))
 
 	if FileExists(missingPath) {
 		t.Fatal("FileExists() = true for missing file, want false")
 	}
 
-	dirPath := Filepath(dir)
+	dirPath := string(dir)
 
 	if FileExists(dirPath) {
 		t.Fatal("FileExists() = true for directory, want false")
@@ -37,7 +37,7 @@ func TestFileExists(t *testing.T) {
 func TestOpenFile(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "test.txt"))
+	filePath := string(filepath.Join(dir, "test.txt"))
 
 	if err := os.WriteFile(string(filePath), []byte("hello"), 0644); err != nil {
 		t.Fatalf("failed to create test file: %v", err)
@@ -62,7 +62,7 @@ func TestOpenFile(t *testing.T) {
 func TestOpenFileMissingFile(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "missing.txt"))
+	filePath := string(filepath.Join(dir, "missing.txt"))
 
 	file, err := OpenFile(filePath)
 
@@ -82,7 +82,7 @@ func TestOpenFileMissingFile(t *testing.T) {
 func TestWriteLinesAndReadLines(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "lines.txt"))
+	filePath := string(filepath.Join(dir, "lines.txt"))
 
 	want := []string{
 		"First line",
@@ -107,7 +107,7 @@ func TestWriteLinesAndReadLines(t *testing.T) {
 func TestReadLinesMissingFile(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "missing.txt"))
+	filePath := string(filepath.Join(dir, "missing.txt"))
 
 	lines, err := ReadLines(filePath)
 
@@ -123,7 +123,7 @@ func TestReadLinesMissingFile(t *testing.T) {
 func TestWriteJSONAndReadJSON(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "config.json"))
+	filePath := string(filepath.Join(dir, "config.json"))
 
 	type Config struct {
 		App    string `json:"app"`
@@ -153,7 +153,7 @@ func TestWriteJSONAndReadJSON(t *testing.T) {
 func TestReadJSONInvalidJSON(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "invalid.json"))
+	filePath := string(filepath.Join(dir, "invalid.json"))
 
 	if err := os.WriteFile(
 		string(filePath),
@@ -175,7 +175,7 @@ func TestReadJSONInvalidJSON(t *testing.T) {
 func TestReadJSONMissingFile(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "missing.json"))
+	filePath := string(filepath.Join(dir, "missing.json"))
 
 	var result map[string]any
 
@@ -189,7 +189,7 @@ func TestReadJSONMissingFile(t *testing.T) {
 func TestWriteJSONInvalidValue(t *testing.T) {
 	dir := t.TempDir()
 
-	filePath := Filepath(filepath.Join(dir, "invalid.json"))
+	filePath := string(filepath.Join(dir, "invalid.json"))
 
 	invalidValue := make(chan int)
 

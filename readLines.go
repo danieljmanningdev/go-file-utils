@@ -12,7 +12,7 @@ import (
 // Author: Daniel Manning <daniel@danieljmanningdev.com>
 // Created: 2026
 // Last Modified: 28 August 2026
-func ReadLines(f Filepath) ([]string, error) {
+func ReadLines(f string) ([]string, error) {
 	file, err := os.Open(string(f))
 	if err != nil {
 		return nil, err
