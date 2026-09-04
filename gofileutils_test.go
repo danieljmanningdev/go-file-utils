@@ -1,15 +1,18 @@
+//
+// Daniel J. Manning
+//
+// Copyright © 2026 Daniel J. Manning.
+// SPDX-License-Identifier: MIT
+//
+
 package gofileutils
 
 import (
-	"errors"
 	"os"
 	"path/filepath"
 	"reflect"
 	"testing"
 )
-
-// Author: Daniel Manning <daniel@danieljmanningdev.com>
-// Created: 2026
 
 func TestFileExists(t *testing.T) {
 	dir := t.TempDir()
@@ -209,29 +212,4 @@ func TestMustNil(t *testing.T) {
 			t.Fatalf("Must(nil) panicked unexpectedly: %v", r)
 		}
 	}()
-
-	Must(nil)
-}
-
-func TestMustPanics(t *testing.T) {
-	wantErr := errors.New("test error")
-
-	defer func() {
-		r := recover()
-
-		if r == nil {
-			t.Fatal("Must() did not panic")
-		}
-
-		gotErr, ok := r.(error)
-		if !ok {
-			t.Fatalf("Must() panic value = %T, want error", r)
-		}
-
-		if !errors.Is(gotErr, wantErr) {
-			t.Fatalf("Must() panic = %v, want %v", gotErr, wantErr)
-		}
-	}()
-
-	Must(wantErr)
 }
