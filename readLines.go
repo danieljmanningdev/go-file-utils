@@ -13,7 +13,7 @@ import (
 // Created: 2026
 
 func ReadLines(f string) ([]string, error) {
-	file, err := os.Open(string(f))
+	file, err := os.Open(f)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ func WriteJSON(f string, v any) error {
 		return err
 	}
 
-	if err := os.WriteFile(string(f), data, 0644); err != nil {
+	if err := os.WriteFile(f, data, 0644); err != nil {
 		return err
 	}
 	return nil

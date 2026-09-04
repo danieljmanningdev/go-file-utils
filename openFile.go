@@ -9,7 +9,7 @@ import "os"
 // Created: 2026
 
 func OpenFile(f string) (*os.File, error) {
-	file, err := os.Open(string(f))
+	file, err := os.Open(f)
 	if err != nil {
 		return nil, err
 	}

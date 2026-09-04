@@ -8,7 +8,7 @@ import "os"
 // Created: 2026
 
 func FileExists(f string) bool {
-	info, err := os.Stat(string(f))
+	info, err := os.Stat(f)
 	if err != nil {
 		return false
 	}

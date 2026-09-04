@@ -13,7 +13,7 @@ import (
 // Created: 2026
 
 func ReadJSON(f string, v any) error {
-	file, err := os.Open(string(f))
+	file, err := os.Open(f)
 	if err != nil {
 		return err
 	}

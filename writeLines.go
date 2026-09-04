@@ -12,7 +12,7 @@ import (
 // Created: 2026
 
 func WriteLines(f string, lines []string) error {
-	file, err := os.Create(string(f))
+	file, err := os.Create(f)
 	if err != nil {
 		return err
 	}
